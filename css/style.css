@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  overflow-x:hidden ;
+}
+
+/* Navbar */
+
+nav {
+  display: flex;
+  background-color: rgb(0, 167, 0);
+  justify-content: space-around;
+  /* padding: 20px ; */
+  color: rgb(160, 254, 19);
+  height: 50px;
+  align-items: center;
+}
+nav .logo {
+  font-family: "Dancing Script";
+  font-size: 1.2rem;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  width: 40%;
+  justify-content: space-between;
+}
+
+nav ul li a {
+  color: rgb(160, 254, 19);
+  text-decoration: none;
+}
+nav ul li a:hover {
+  color: white;
+}
+/* Hamburger Menu */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  height: 20px;
+  justify-content: space-between;
+  position: relative;
+}
+
+.menu-toggle input {
+  position: absolute;
+  width: 40px;
+  height: 28px;
+  opacity: 0;
+  left: -6px;
+  top: -5px;
+  cursor: pointer;
+  z-index: 2;
+}
+.menu-toggle span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: rgb(160, 254, 19);
+  border-radius: 3px;
+  transition: all 0.5s;
+}
+/* hamburger menu animation */
+.menu-toggle span:nth-child(2) {
+  transform-origin: 0 0;
+}
+
+.menu-toggle span:last-child {
+  transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+.menu-toggle input:checked ~ span:nth-child(3) {
+  opacity: 0;
+  transition: scale(0);
+}
+.menu-toggle input:checked ~ span:last-child {
+  /* background-color: red; */
+  transform: rotate(-45deg) translate(-1px, 0);
+}
+
+/* Responsive Breakpoint */
+
+/* ukuran tablet */
+@media (max-width: 768px) {
+  nav ul {
+    width: 50%;
+  }
+}
+
+/* ukuran mobile */
+@media (max-width: 576px) {
+  nav ul {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 80%;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color:   rgb(0, 167, 0);
+    z-index: -2;
+    transform:translateX(100%) ;
+    transition: all 1s;
+    justify-content: space-around;
+  }
+  nav ul.slide {
+    transform: translateX(0);
+  }
+  .menu-toggle {
+    display: flex;
+  }
+}
